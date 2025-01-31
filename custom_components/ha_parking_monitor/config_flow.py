@@ -20,13 +20,13 @@ class HAParkingMonitorConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         if user_input is not None:
             return self.async_create_entry(title="HA Parking Monitor", data=user_input)
 
-        data_schema = vol.Schema(
-            {
-                vol.Optional("allowed_vrms", default=[]): list,
-                vol.Optional("webhook_token", default="my_secure_token"): str,
-                vol.Optional("history_size", default=10): int,
-            }
-        )
+            data_schema = vol.Schema(
+                {
+                    vol.Optional("allowed_vrms", default=[]): vol.All(cv.ensure_list, [cv.string]),  
+                    vol.Optional("webhook_token", default="my_secure_token"): cv.string,
+                    vol.Optional("history_size", default=10): cv.positive_int,
+                }
+            )
 
         return self.async_show_form(step_id="user", data_schema=data_schema, errors=errors)
 
