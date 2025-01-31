@@ -5,5 +5,6 @@
   "repo": "https://github.com/knaps151/HA-Parking-Monitor",
   "class": "integration",
   "authors": ["@knaps151"],
-  "keywords": ["anpr", "license plate", "camera", "home assistant"]
+  "keywords": ["anpr", "license plate", "camera", "home assistant"],
+  "render_readme": true
 }
