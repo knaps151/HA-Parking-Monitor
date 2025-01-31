@@ -10,29 +10,52 @@
 - Maintains a history of detected vehicles
 - Tracks parked vehicles with timestamps
 
-## Installation via HACS
+---
 
-1. Add the following repository to HACS as a custom repository:
+## Installation via HACS (Recommended)
+
+### **1. Add to HACS**
+1. **Go to HACS → Integrations**.
+2. **Add a Custom Repository**:
    ```
    https://github.com/knaps151/HA-Parking-Monitor
    ```
-
-2. Install **HA Parking Monitor** from HACS.
-
-3. Add the following to your `configuration.yaml`:
-
-   ```yaml
-   ha_parking_monitor:
-     allowed_vrms:
-       - "AB12CDE"
-       - "XY34FGH"
-     webhook_token: "my_secure_token"
-     history_size: 15
-   ```
-
+   - Select **"Integration"** as the category.
+3. Search for **HA Parking Monitor** in HACS and install it.
 4. Restart Home Assistant.
 
-## Webhook API
+---
+
+### **2. Configure via UI (No `configuration.yaml` Required)**
+1. **Go to Home Assistant → Settings → Devices & Services**.
+2. Click **+ Add Integration** and search for **HA Parking Monitor**.
+3. Enter:
+   - **Allowed VRMs**
+   - **Webhook Token**
+   - **History Size**
+4. Save and restart Home Assistant.
+
+✅ **This method stores settings in `.storage/` instead of `configuration.yaml`.**
+
+---
+
+## **(Optional) Manual Configuration via `configuration.yaml`**
+If you prefer manual configuration, you **can still** add this to `configuration.yaml`:
+
+```yaml
+ha_parking_monitor:
+  allowed_vrms:
+    - "AB12CDE"
+    - "XY34FGH"
+  webhook_token: "my_secure_token"
+  history_size: 15
+```
+
+Then restart Home Assistant.
+
+---
+
+## **Webhook API**
 
 The integration exposes a webhook that allows ANPR cameras to send data. The webhook URL is:
 
@@ -40,8 +63,7 @@ The integration exposes a webhook that allows ANPR cameras to send data. The web
 http://homeassistant.local:8123/api/webhook/ha_parking_monitor
 ```
 
-### Example JSON Payload
-
+### **Example JSON Payload**
 ```json
 {
   "token": "my_secure_token",
@@ -52,7 +74,9 @@ http://homeassistant.local:8123/api/webhook/ha_parking_monitor
 }
 ```
 
-## License
+---
+
+## **License**
 MIT License
 
 For more details, see [HA Parking Monitor on GitHub](https://github.com/knaps151/HA-Parking-Monitor).
