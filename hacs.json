@@ -1,0 +1,9 @@
+{
+  "name": "HA Parking Monitor",
+  "description": "ANPR camera integration for Home Assistant",
+  "domain": "ha_parking_monitor",
+  "repo": "https://github.com/knaps151/HA-Parking-Monitor",
+  "class": "integration",
+  "authors": ["@knaps151"],
+  "keywords": ["anpr", "license plate", "camera", "home assistant"]
+}
