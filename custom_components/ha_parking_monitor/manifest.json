@@ -1,10 +1,11 @@
 {
   "domain": "ha_parking_monitor",
   "name": "HA Parking Monitor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "documentation": "https://github.com/knaps151/HA-Parking-Monitor",
   "dependencies": [],
   "codeowners": ["@knaps151"],
   "requirements": [],
-  "iot_class": "local_polling"
+  "iot_class": "local_polling",
+  "config_flow": true
 }
